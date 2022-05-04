@@ -4,15 +4,23 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.persistence.*;
+
 @Data
 @Component
+@Entity
+@Table(name="users")
 public class User {
 
-    private String userid;
-    private String password;
-    private String email;
-    private String name;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(nullable = false) private String userid;
+    @Column(nullable = false) private String password;
+    @Column(nullable = false) private String email;
+    @Column(nullable = false) private String name;
     private String phone;
     private String birth;
     private String address;
+
+
 }

@@ -1,12 +1,7 @@
 package crp.kr.api.common.lambda;
 
 
-import javax.persistence.criteria.CriteriaBuilder;
-
-import static crp.kr.api.common.dataStructure.AppleList.Apple;
-
 import java.io.File;
-import java.util.Arrays;
 import java.util.function.*;
 
 public class Lambda {

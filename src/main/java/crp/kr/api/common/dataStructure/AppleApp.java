@@ -36,7 +36,7 @@ public class AppleApp {
                     origin, color, price);
         }
     }
-    interface AppleService{
+        interface AppleService{
         void save(Apple apple);
         void update(int i, Apple apple);
         void delete(Apple apple);
@@ -47,7 +47,7 @@ public class AppleApp {
         int countAll();
         void clear();
     }
-    static class AppleServiceImpl implements AppleService{
+        static class AppleServiceImpl implements AppleService{
         private final List<Apple> list;
 
         public AppleServiceImpl() {
@@ -102,8 +102,8 @@ public class AppleApp {
             list.clear();
         }
     }
-    @Test
-    void appleAppTest(){
+        @Test
+        void appleAppTest(){
         AppleService service = new AppleServiceImpl();
         System.out.println("### 1. save ###");
         Apple yd = new Apple.Builder()

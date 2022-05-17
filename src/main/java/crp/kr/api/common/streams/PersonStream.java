@@ -48,6 +48,7 @@ public class PersonStream {
                 Person.builder().name("김유신").ssn("970620-1").build(),
                 Person.builder().name("유관순").ssn("040920-4").build()
         );
+
         PersonService ps = persons -> persons.stream().filter(e->e.getName().equals("홍길동"))
                         .collect(Collectors.toList()).get(0);
         System.out.println(ps.search(l));

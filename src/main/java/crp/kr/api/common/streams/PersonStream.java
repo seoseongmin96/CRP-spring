@@ -11,62 +11,46 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PersonStream {
-
     @Builder
+    @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    @Getter
-    public static class Person {
+    public static class Person{
         private String name, ssn;
 
-
-
-
-    @Override
-    public String toString() {
-        String num= ssn.substring(7);
-        String gender="";
-        switch (num){
-            case "1" : case "3":
-                gender= "남성";
-                break;
-            case "2" : case "4":
-                gender= "여성";
-                break;
+        private boolean getGenderChecker(String ssnGenderPos){
+            return ssn.substring(7,8).equals(ssnGenderPos);
         }
-        
-        return String.format("이름: %s, 성별: %s", "나이 : %s",name,gender);
-    }
-}
-    // 기능: 회원검색
-
-    interface PersonService{
-        List<Person> search(List<Person> arr);
-    }
-    static class PersonServiceImpl implements PersonService{
         @Override
-        public List<Person> search(List<Person> list) {
-            return list
-                    .stream()
-                    .filter(e -> e.getName().equals("유관순"))
-                    .collect(Collectors.toList());
+        public String toString() {
+            String gender =(getGenderChecker("1")||getGenderChecker("3"))? "남자" :"여자";
+            int year = Integer.parseInt(ssn.substring(0,2));
+            if(getGenderChecker("1")){year+= 1900;}
+            else if(getGenderChecker("2")){year+= 1900;}
+            else {year+= 2000;}
+            String age = String.valueOf(2022-year+1);  // 1의 의미는 한국나이로 태어나면 1살부터 시작
+
+            return String.format("이름 : %s 성별 : %s 나이 : %s", name, gender, age);
         }
     }
+    // 기능: 회원검색
+    @FunctionalInterface interface PersonService{Person search(List <Person> persons);}
+
+
     @Test
     void personStreamTest(){
-
-        List<Person> list = Arrays.asList(
+        // "홍길동","900120-1"
+        // "김유신","970620-1"
+        // "유관순","040920-4"
+        // 남성, 여성, 나이 판단 로직
+        List<Person> l = Arrays.asList(
                 Person.builder().name("홍길동").ssn("900120-1").build(),
                 Person.builder().name("김유신").ssn("970620-1").build(),
-                Person.builder().name("유관순").ssn("848928-4").build()
+                Person.builder().name("유관순").ssn("040920-4").build()
         );
-        new PersonServiceImpl()
-                .search(list)
-                .forEach(System.out::print);
-        // "홍길동", "900120-1"
-        // "김유신", "970620-1"
-        // "유관순", "848928-4"
-        // 남성, 여성, 나이 판단 로직
+        PersonService ps = persons -> persons.stream().filter(e->e.getName().equals("홍길동"))
+                        .collect(Collectors.toList()).get(0);
+        System.out.println(ps.search(l));
 
     }
 }

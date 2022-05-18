@@ -15,19 +15,11 @@ public class PrimeNumber {
         int start, end;
         List<Integer> primes;
 
-        @Override
-        public String toString() {
-            return String.format("시작점: %d, 도착점: %d");
-        }
     }
+    @FunctionalInterface static interface SolutionService{ Solution solution(Solution solution);}
 
-    @FunctionalInterface
-    private interface PrimeService{
-        Solution solution(Solution solution);
-    }
     @Test
-    void testPrime(){
+    void solution(){
 
     }
-
 }

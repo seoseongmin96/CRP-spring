@@ -9,29 +9,29 @@ import java.util.List;
 
 @Builder
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Component
 @Entity
 @Table(name = "teams")
 public class Team {
     @Id
     @Column(name = "team_no")
-    @GeneratedValue(strategy = GenerationType.IDENTITY) private String teamNo;
-    @Column(nullable = false) private String stadiumId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) private long teamNo;
     @Column(nullable = false) private String teamId;
+    @Column(nullable = false) private String stadiumId;
     private String regionName;
     private String teamName;
     private String eTeamName;
-    private String orig;
-    private String zipcode1;
-    private String zipcode2;
+    private String origYyyy;
+    private String zipCode1;
+    private String zipCode2;
     private String address;
     private String ddd;
     private String tel;
     private String fax;
     private String homepage;
-    private String teamOwner;
+    private String owner;
 
     @OneToMany(mappedBy = "team")
     List<Player> players = new ArrayList<>();

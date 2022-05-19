@@ -7,8 +7,8 @@ import javax.persistence.*;
 
 @Builder
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Component
 @Entity
 @Table(name = "players")
@@ -16,8 +16,8 @@ public class Player {
     @Id
     @Column(name = "player_no")
     @GeneratedValue(strategy = GenerationType.IDENTITY) private long playerNo;
-    @Column(nullable = false) private String playerName;
     @Column(nullable = false) private String playerId;
+    @Column(nullable = false) private String playerName;
     private String ePlayerName;
     private String nickname;
     private String joinYyyy;
@@ -28,8 +28,10 @@ public class Player {
     private String solar;
     private String height;
     private String weight;
+    private String teamId;
 
-    @ManyToOne (fetch = FetchType.LAZY)
-        @JoinColumn(name = "team_no")
-     private Team team;
+    @ManyToOne
+    @JoinColumn(name = "team_no")
+    private Team team;
+
 }

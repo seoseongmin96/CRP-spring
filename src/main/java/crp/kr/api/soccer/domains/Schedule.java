@@ -14,12 +14,17 @@ import javax.persistence.*;
 @Table(name = "schedules")
 public class Schedule {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) private long id;
-    private String stadiumid;
+    @Column(name = "schedule_no")
+    @GeneratedValue(strategy = GenerationType.IDENTITY) private long scheduleNo;
+    @Column(nullable = false) private String scheduleId;
     private String scheDate;
     private String gubun;
     private String homeTeamid;
     private String awayTeamid;
     private String homeScore;
     private String awayScore;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "stadium_no")
+    private Stadium stadium;
 }

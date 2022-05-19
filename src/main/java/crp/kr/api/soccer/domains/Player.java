@@ -14,10 +14,10 @@ import javax.persistence.*;
 @Table(name = "players")
 public class Player {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) private long id;
-    @Column(nullable = false) private String playerid;
+    @Column(name = "player_no")
+    @GeneratedValue(strategy = GenerationType.IDENTITY) private long playerNo;
     @Column(nullable = false) private String playerName;
-    private String teamid;
+    @Column(nullable = false) private String playerId;
     private String ePlayerName;
     private String nickname;
     private String joinYyyy;
@@ -28,4 +28,8 @@ public class Player {
     private String solar;
     private String height;
     private String weight;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+        @JoinColumn(name = "team_no")
+     private Team team;
 }

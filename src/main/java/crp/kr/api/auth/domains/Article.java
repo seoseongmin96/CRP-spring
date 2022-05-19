@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -37,4 +38,13 @@ public class Article {
     private String title;
     @Column @NotNull private String content;
     @Column(name = "written_date") @NotNull private String writtenDate;
+
+
+   @ManyToOne (fetch = FetchType.LAZY)
+           @JoinColumn(name = "user_id")
+    private User user;
+
+   @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "board_id")
+    private Board board;
 }

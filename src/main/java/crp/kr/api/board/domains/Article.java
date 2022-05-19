@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
-@Component
+public class Article {}
+/*@Component
 @Entity
 @Data
-public class Article {
+{
     @Id Long id;
     private String projects;
     private String startData;
@@ -19,4 +19,4 @@ public class Article {
     private String action;
 
 
-}
+}*/

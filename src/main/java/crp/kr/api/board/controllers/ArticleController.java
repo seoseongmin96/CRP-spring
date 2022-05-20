@@ -1,7 +1,5 @@
 package crp.kr.api.board.controllers;
 
-import crp.kr.api.auth.domains.User;
-import crp.kr.api.auth.services.UserService;
 import crp.kr.api.board.domains.Article;
 import crp.kr.api.board.services.ArticleService;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +9,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
@@ -44,13 +41,13 @@ public class ArticleController{
     }
 
     @DeleteMapping("/delete")
-    public String delete(@RequestBody Article Article) {
-        return service.delete(Article);
+    public String delete(@RequestBody Article article) {
+        return service.delete(article);
     }
 
     @PostMapping("/join")
-    public String save(@RequestBody Article Article) {
-        return service.save(Article);
+    public String save(@RequestBody Article article) {
+        return service.save(article);
     }
 
 

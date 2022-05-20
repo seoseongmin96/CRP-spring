@@ -4,6 +4,11 @@ import crp.kr.api.soccer.domains.Player;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+
+interface PlayerCustomRepository{
+    Player update(Player player);
+}
 @Repository
 public interface PlayerRepository extends JpaRepository<Player, Long> {
+
 }

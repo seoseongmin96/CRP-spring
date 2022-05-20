@@ -1,6 +1,7 @@
 package crp.kr.api.auth.domains;
 
 import com.sun.istack.NotNull;
+import crp.kr.api.board.domains.Article;
 import lombok.*;
 import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,8 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     List<Article> article = new ArrayList<>();
+
+
 
 
 }

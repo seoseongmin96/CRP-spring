@@ -7,7 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -15,8 +14,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
-
-public class UserController{
+public class UserController {
 
     private final UserService service;
 
@@ -29,7 +27,7 @@ public class UserController{
     public String logout() {
         return "";
     }
-    @PutMapping("/put")
+    @PutMapping("/update")
     public String update(@RequestBody User user) {
         return service.update(user);
     }
@@ -74,6 +72,7 @@ public class UserController{
     public boolean existsById(@PathVariable String userid) {
         return service.existsById(userid);
     }
+
 
 }
 

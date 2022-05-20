@@ -1,22 +1,39 @@
 package crp.kr.api.board.domains;
 
-import lombok.Data;
+import com.sun.istack.NotNull;
+import crp.kr.api.auth.domains.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-public class Article {}
-/*@Component
+import javax.persistence.*;
+
+@Builder
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Component
 @Entity
-@Data
-{
-    @Id Long id;
-    private String projects;
-    private String startData;
-    private String status;
-    private String team;
-    private String progress;
-    private String action;
+@Table(name="articles")
+public class Article {
+    @Id
+    @Column(name = "article_id")
+    @GeneratedValue
+    private long articleId;
+
+    @Column @NotNull
+    private String title;
+    @Column @NotNull private String content;
+    @Column(name = "written_date") @NotNull private String writtenDate;
 
 
-}*/
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "board_id")
+    private Board board;
+}

@@ -18,11 +18,6 @@ import java.util.Optional;
 public class PlayerController {
     private final PlayerService service;
 
-    @PutMapping("/update")
-    public String update(@RequestBody Player player) {
-
-        return service.update(player);
-    }
 
     @GetMapping("/findAll")
     public List<Player> findAll() {

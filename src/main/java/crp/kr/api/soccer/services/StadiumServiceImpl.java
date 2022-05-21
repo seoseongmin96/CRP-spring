@@ -60,8 +60,5 @@ public class StadiumServiceImpl implements StadiumService{
         return false;
     }
 
-    @Override
-    public String update(Stadium stadium) {
-        return null;
-    }
+
 }

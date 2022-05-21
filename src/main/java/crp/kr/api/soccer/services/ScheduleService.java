@@ -25,5 +25,4 @@ public interface ScheduleService {
     boolean existsById(String scheduleid);
 
 
-    String update(Schedule schedule);
 }

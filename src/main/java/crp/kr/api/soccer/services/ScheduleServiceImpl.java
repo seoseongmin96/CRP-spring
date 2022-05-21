@@ -59,10 +59,7 @@ public class ScheduleServiceImpl implements ScheduleService{
         return repository.existsById(0L);
     }
 
-    @Override
-    public String update(Schedule schedule) {
-        return null;
-    }
+
 
 
 }

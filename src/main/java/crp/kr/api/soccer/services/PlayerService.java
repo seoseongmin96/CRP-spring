@@ -27,5 +27,4 @@ public interface PlayerService {
     boolean existsById(String playerid);
 
 
-    String update(Player player);
 }

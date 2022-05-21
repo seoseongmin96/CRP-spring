@@ -19,11 +19,6 @@ import java.util.Optional;
 public class TeamController {
     private final TeamService service;
 
-    @PutMapping("/update")
-    public String update(@RequestBody Team team) {
-        return "";
-        //return service.update(team);
-    }
 
     @GetMapping("/findAll")
     public List<Team> findAll() {

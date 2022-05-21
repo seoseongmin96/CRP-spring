@@ -30,4 +30,4 @@ public interface StadiumService {
     boolean existsById(String stadiumid);
 
 
-    String update(Stadium stadium);}
+}

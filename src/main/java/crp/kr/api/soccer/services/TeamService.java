@@ -25,5 +25,4 @@ public interface TeamService {
 
     boolean existsById(String teamid);
 
-    String update(Team team);
 }

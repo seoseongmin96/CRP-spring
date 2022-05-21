@@ -17,11 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class StadiumController {
     private final StadiumService service;
-    @PutMapping("/update")
-    public String update(@RequestBody Stadium stadium) {
-//        return service.update(stadium);
-        return "";
-    }
+
 
     @GetMapping("/findAll")
     public List<Stadium> findAll() {

@@ -18,10 +18,6 @@ import java.util.Optional;
 public class ScheduleController {
     private final ScheduleService service;
 
-    @PutMapping("/update")
-    public String update(@RequestBody Schedule schedule) {
-        return service.update(schedule);
-    }
 
     @GetMapping("/findAll")
     public List<Schedule> findAll() {

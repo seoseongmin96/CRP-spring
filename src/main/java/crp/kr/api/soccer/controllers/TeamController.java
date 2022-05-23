@@ -1,7 +1,5 @@
 package crp.kr.api.soccer.controllers;
 
-import crp.kr.api.soccer.domains.Player;
-import crp.kr.api.soccer.domains.Schedule;
 import crp.kr.api.soccer.domains.Team;
 import crp.kr.api.soccer.services.TeamService;
 import lombok.RequiredArgsConstructor;

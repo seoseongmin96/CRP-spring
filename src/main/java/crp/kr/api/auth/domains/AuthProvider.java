@@ -1,7 +1,7 @@
-package crp.kr.api.security.domains;
+package crp.kr.api.auth.domains;
 
-import crp.kr.api.auth.domains.Role;
-import crp.kr.api.security.services.UserDetailsServiceImpl;
+import crp.kr.api.user.domains.Role;
+import crp.kr.api.auth.services.AuthServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,8 +28,8 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 @Log
-public class SecurityProvider implements AuthenticationProvider {
-    private final UserDetailsServiceImpl service;
+public class AuthProvider implements AuthenticationProvider {
+    private final AuthServiceImpl service;
 
     @Value("${security.jwt.token.security-key:secret-key}")
     private String securityKey;

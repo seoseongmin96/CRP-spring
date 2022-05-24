@@ -1,12 +1,9 @@
 package crp.kr.api.common.dataStructure;
 
-import crp.kr.api.auth.repositories.UserRepository;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-import java.lang.reflect.Member;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

@@ -1,6 +1,6 @@
-package crp.kr.api.auth.repositories;
+package crp.kr.api.user.repositories;
 
-import crp.kr.api.auth.domains.User;
+import crp.kr.api.user.domains.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

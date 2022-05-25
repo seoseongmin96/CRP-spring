@@ -3,6 +3,7 @@ package crp.kr.api.auth.domains;
 import crp.kr.api.user.domains.Role;
 import crp.kr.api.auth.services.AuthServiceImpl;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -71,8 +73,19 @@ public class AuthProvider implements AuthenticationProvider {
         return  Jwts.parser().setSigningKey(securityKey).parseClaimsJws(token).getBody().getSubject();
     }
     public String resolveToken(HttpServletRequest request){
-        String bearerToken = request.getHeader("");
-        return "";
+        String bearerToken = request.getHeader("Authorization");
+        if(bearerToken != null && bearerToken.startsWith("Bearer")){
+            return bearerToken.substring(7);
+        }
+        return null;
+    }
+    public boolean validateToken(String token) throws Exception{
+        try {
+            Jwts.parser().setSigningKey(securityKey).parseClaimsJws(token);
+            return true;
+        }catch (JwtException | IllegalArgumentException e){
+            throw new Exception();
+        }
     }
 
     @Override

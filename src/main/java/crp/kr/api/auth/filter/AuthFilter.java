@@ -1,6 +1,6 @@
 package crp.kr.api.auth.filter;
 
-import crp.kr.api.auth.domains.AuthProvider;
+import crp.kr.api.auth.configs.AuthProvider;
 import crp.kr.api.auth.exception.SecurityRuntimeException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

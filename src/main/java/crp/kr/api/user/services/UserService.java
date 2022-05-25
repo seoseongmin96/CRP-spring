@@ -1,6 +1,7 @@
 package crp.kr.api.user.services;
 
 import crp.kr.api.user.domains.User;
+import crp.kr.api.user.domains.UserDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -11,8 +12,7 @@ import java.util.Optional;
 
 public interface UserService {
 
-
-    String login(User user);
+    UserDTO login(User user);
 
     List<User> findAll();
 
@@ -28,11 +28,13 @@ public interface UserService {
 
     String save(User user);
 
-
     Optional<User> findById(String userid);
 
     boolean existsById(String userid);
 
-    //custom
+    // custom
+
     List<User> findByUserName(String name);
+
+
 }

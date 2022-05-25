@@ -1,4 +1,4 @@
-package crp.kr.api.auth.domains;
+package crp.kr.api.auth.configs;
 
 import crp.kr.api.user.domains.Role;
 import crp.kr.api.auth.services.AuthServiceImpl;

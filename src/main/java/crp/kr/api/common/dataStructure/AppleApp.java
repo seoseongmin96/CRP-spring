@@ -36,7 +36,7 @@ public class AppleApp {
                     origin, color, price);
         }
     }
-        interface AppleService{
+    interface AppleService{
         void save(Apple apple);
         void update(int i, Apple apple);
         void delete(Apple apple);
@@ -47,7 +47,7 @@ public class AppleApp {
         int countAll();
         void clear();
     }
-        static class AppleServiceImpl implements AppleService{
+    static class AppleServiceImpl implements AppleService{
         private final List<Apple> list;
 
         public AppleServiceImpl() {
@@ -102,8 +102,8 @@ public class AppleApp {
             list.clear();
         }
     }
-        @Test
-        void appleAppTest(){
+    @Test
+    void appleAppTest(){
         AppleService service = new AppleServiceImpl();
         System.out.println("### 1. save ###");
         Apple yd = new Apple.Builder()
@@ -133,18 +133,15 @@ public class AppleApp {
         System.out.println("### 5. findById ###");
         System.out.println("첫번째 사과정보:" +service.findById(0));
         System.out.println("### 6. update ###");
-        service.update(0, new Apple.Builder()
-                .origin("캘리포니아")
-                .color("YELLOW")
-                .price(20000)
-                .build());
+        Apple ca = new Apple.Builder()
+                .origin("풍기")
+                .color("RED")
+                .price(2000)
+                .build();
+        service.update(0, ca);
         System.out.println("수정된 사과정보:" +service.findById(0));
         System.out.println("### 7. delete ###");
-        service.delete(new Apple.Builder()
-                .origin("캘리포니아")
-                .color("YELLOW")
-                .price(20000)
-                .build());
+        service.delete(ca);
         System.out.println("삭제후 카운트 감소확인: "+service.countAll());
         System.out.println("### 8. clear ###");
         service.clear();

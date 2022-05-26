@@ -11,12 +11,13 @@ import java.util.List;
 
 @Builder
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-
+@NoArgsConstructor
+@ToString
+@Setter
 @Entity
 @Table(name="users")
-public class User {
+public class  User {
     @Id
     @Column(name = "user_id")
     @GeneratedValue private long userId;
@@ -27,11 +28,7 @@ public class User {
     @Column(name = "reg_date") @NotNull private String regDate;
 
     @OneToMany(mappedBy = "user")
-    List<Article> article = new ArrayList<>();
+    List<Article> a = new ArrayList<>();
     @ElementCollection(fetch = FetchType.EAGER)
     public List<Role> roles;
-
-
-
-
 }

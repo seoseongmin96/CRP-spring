@@ -5,6 +5,7 @@ import crp.kr.api.common.dataStructure.AppleApp;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.function.*;
 
@@ -59,4 +60,11 @@ public class Lambda {
         System.out.println(array(10).length);
         System.out.println(random(1,6));
     }
+    public static String date(){
+        Supplier<String> f = () -> string(LocalDate.now());
+        return f.get();
+    }
+
+
 }
+

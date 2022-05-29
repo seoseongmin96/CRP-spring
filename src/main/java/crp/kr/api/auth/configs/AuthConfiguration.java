@@ -34,7 +34,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
     }
     @Override
     public void configure(WebSecurity web) throws Exception {
-       web.ignoring().antMatchers(HttpMethod.OPTIONS, "*/**").antMatchers("/");
+      // web.ignoring().antMatchers(HttpMethod.OPTIONS, "*/**").antMatchers("/");
     }
 
     @Override
@@ -48,3 +48,4 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
         http.exceptionHandling().accessDeniedPage("/users/login");
     }
 }
+//보안 공부

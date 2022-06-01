@@ -7,7 +7,7 @@ public class Q3_Team { public static void main(String[] args) {
     while (true){
         System.out.println("1.팀별 과제 2.팀장이 맡은 과제 3.큐를 담당한 사람 4.팀원별 과제 수");
         String[] arr = {"권혜민","조현국","김진영","김한슬","서성민",
-                "정렬","해시","힙","완전탐색","DP",
+                         "정렬","해시","힙","완전탐색","DP",
                 "스택","깊이우선탐색","그래프","탐욕법","이중탐색",
                 "큐","너비우선탐색"};
         switch (scanner.next()){
@@ -95,3 +95,4 @@ public class Q3_Team { public static void main(String[] args) {
     }
 
 }
+///

@@ -34,7 +34,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
     }
     @Override
     public void configure(WebSecurity web) throws Exception {
-      // web.ignoring().antMatchers(HttpMethod.OPTIONS, "*/**").antMatchers("/");
+       web.ignoring().antMatchers(HttpMethod.OPTIONS, "*/**").antMatchers("/");
     }
 
     @Override
